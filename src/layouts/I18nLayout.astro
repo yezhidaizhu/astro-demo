@@ -1,0 +1,22 @@
+---
+// src/layouts/I18nLayout.astro
+import { readFile } from "fs/promises";
+import { renderToString } from "react-dom/server";
+import i18n from "../i18n";
+import I18nWrapper from "../components/I18nWrapper";
+
+// const { lang } = Astro.props;
+// const raw = await readFile(`./src/locales/${lang}.json`, "utf-8");
+// const translations = JSON.parse(raw);
+// initI18n(lang, { [lang]: translations });
+
+i18n.init();
+---
+
+<I18nWrapper client:only="react">
+  <html lang={i18n.language}>
+    <body>
+      <slot />
+    </body>
+  </html>
+</I18nWrapper>
