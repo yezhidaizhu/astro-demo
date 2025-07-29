@@ -4,9 +4,10 @@ import i18n from "i18next";
 import I18NLayout from "../../layouts/I18nLayout.astro";
 import Demo from "../../components/Demo";
 import I18nWrapper from "../../components/I18nWrapper";
+import { buildStaticPaths } from "../../i18n/utils";
 
 export function getStaticPaths() {
-  return [{ params: { lang: "zh" } }];
+  return buildStaticPaths();
 }
 ---
 

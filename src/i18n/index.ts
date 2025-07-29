@@ -5,6 +5,11 @@ import { initReactI18next } from "react-i18next";
 import en from "./locales/en-US/common.json";
 import zh from "./locales/zh-TW/common.json";
 
+export const i18nConfig = {
+  locales: ["en", "zh"],
+  defaultLocale: "en",
+};
+
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
     resources: {
@@ -15,6 +20,9 @@ if (!i18n.isInitialized) {
     fallbackLng: "en",
     interpolation: {
       escapeValue: false,
+    },
+    react: {
+      useSuspense: false,
     },
   });
 }

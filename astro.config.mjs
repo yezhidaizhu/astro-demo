@@ -10,7 +10,6 @@ import reactI18next from "astro-react-i18next";
 export default defineConfig({
   integrations: [
     react(),
-    
   ],
 
   vite: {

@@ -1,0 +1,14 @@
+---
+// import { buildStaticPaths } from "astro-react-i18next/utils";
+import { buildStaticPaths } from "../../i18n/utils";
+import I18NLayout from "../../layouts/I18nLayout.astro";
+import Demo from "../../components/Demo";
+
+export function getStaticPaths() {
+  return buildStaticPaths();
+}
+---
+
+<I18NLayout>
+  <Demo client:load />
+</I18NLayout>

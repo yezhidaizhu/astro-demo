@@ -7,7 +7,7 @@ export default function Demo() {
 
   return (
     <div className=" text-red-500 ">
-      {t("demo.hello")}
+      {t("hello")}
       {data}
       <button>addddddd</button>
     </div>
