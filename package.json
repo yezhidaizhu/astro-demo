@@ -1,5 +1,5 @@
 {
-  "name": "squealing-solstice",
+  "name": "astro-react-i18next-examples-ssg",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,18 +9,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^9.3.0",
-    "@astrojs/react": "^4.3.0",
-    "@tailwindcss/vite": "^4.1.11",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
+    "@astrojs/react": "4.2.1",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "19.0.4",
     "astro": "^5.12.3",
-    "astro-react-i18next": "^0.3.2",
-    "i18next": "^25.3.2",
+    "astro-react-i18next": "latest",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "vite-plugin-devtools-json": "^0.4.1"
+  },
+  "devDependencies": {
+    "i18next": "^24.0.2",
+    "i18next-browser-languagedetector": "^8.0.0",
     "i18next-fs-backend": "^2.6.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-i18next": "^15.6.1",
-    "tailwindcss": "^4.1.11"
+    "i18next-http-backend": "^3.0.1",
+    "react-i18next": "^15.1.2"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "hello_world": "Hello, World!",
+  "demo": {
+    "a": "aaaa"
+  },
+  "input_label": "Your Message",
+  "submit": "Submit",
+  "increment": "Increment",
+  "children_slot": "Custom Content"
+}

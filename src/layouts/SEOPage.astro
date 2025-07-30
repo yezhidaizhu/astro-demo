@@ -1,0 +1,32 @@
+---
+import i18n from "i18next";
+import { getFixedT } from "i18next";
+
+interface Props {
+  seoI18nNamespace: string; // 获取 hero 的空间命名
+}
+
+const { seoI18nNamespace } = Astro.props as Props;
+
+const params = Astro.params;
+
+const t = getFixedT(i18n.language, seoI18nNamespace);
+---
+
+<!DOCTYPE html>
+<html lang={i18n.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width" name="viewport" />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <meta content={Astro.generator} name="generator" />
+    <title>{t("hero.title")}</title>
+    <meta name="description" content={t("hero.description")} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+
+

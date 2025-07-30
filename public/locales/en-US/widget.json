@@ -1,0 +1,4 @@
+{
+  "title": "Complex Widget",
+  "greeting": "Hello, {{user}}!"
+}
