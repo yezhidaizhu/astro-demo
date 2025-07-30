@@ -1,40 +1,16 @@
 ---
-import { buildStaticPaths } from "astro-react-i18next/utils";
-import i18n from "i18next";
 import { Hello } from "../../components/Hello";
-import { changeLocale } from "astro-react-i18next/utils";
 import SEOPage from "../../layouts/SEOPage.astro";
-import ComplexWidget from "../../components/ComplexWidget";
-
+import { defineStaticPaths } from "../../utils/seo";
 
 export function getStaticPaths() {
-  return buildStaticPaths();
+  return defineStaticPaths();
 }
 
+const { curPageLocales } = Astro.props;
 const seoI18nNamespace = "demo";
-
-const userName = 'Alice';
-
 ---
-<SEOPage seoI18nNamespace={seoI18nNamespace}>
-    <div style="display: flex; gap: 10px;">
-      <a href="/">en-US</a>
-      <a href="/fr-FR">fr-FR</a>
-      <a href="/zh-TW">zh-TW</a>
-    </div>
 
-    <Hello client:load />
-
-     <ComplexWidget userName={userName} initialCount={5} client:load>
-      <p>This is <strong>slotted content</strong> passed from Astro.</p>
-  </ComplexWidget>
+<SEOPage seoI18nNamespace={seoI18nNamespace} curPageLocales={curPageLocales}>
+  <Hello client:only />
 </SEOPage>
-
-
-
-
-
-
-
-
-
