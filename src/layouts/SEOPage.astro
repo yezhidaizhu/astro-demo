@@ -4,14 +4,17 @@ import { getFixedT } from "i18next";
 
 interface Props {
   seoI18nNamespace: string; // 获取 i18n 的空间命名
-  curPageLocales: string[]; // 当前页面的所有语言的 code 值
+  canonicalConfig: {
+    canonicalPath: string;
+    hreflangUrl: {
+      hreflang: string;
+      href: string;
+    }[];
+  };
 }
 
-const { seoI18nNamespace, curPageLocales } = Astro.props as Props;
-
+const { seoI18nNamespace, canonicalConfig } = Astro.props as Props;
 const t = getFixedT(i18n.language, seoI18nNamespace);
-
-// 处理canonical
 ---
 
 <!doctype html>
@@ -23,7 +26,15 @@ const t = getFixedT(i18n.language, seoI18nNamespace);
     <meta content={Astro.generator} name="generator" />
     <title>{t("hero.title")}</title>
     <meta name="description" content={t("hero.description")} />
-    <link rel="canonical" href={import.meta.env.PUBLIC_DOMAIN_ADDRESS} />
+    <link rel="canonical" href={canonicalConfig.canonicalPath} />
+
+    {
+      canonicalConfig?.hreflangUrl?.map((item) => {
+        return (
+          <link rel="alternate" hreflang={item.hreflang} href={item.href} />
+        );
+      })
+    }
   </head>
   <body>
     <slot />

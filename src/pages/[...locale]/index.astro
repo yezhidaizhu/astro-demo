@@ -1,16 +1,24 @@
 ---
 import { Hello } from "../../components/Hello";
 import SEOPage from "../../layouts/SEOPage.astro";
-import { defineStaticPaths } from "../../utils/seo";
+import { defineStaticPaths, getCanonical } from "../../utils/seo";
 
 export function getStaticPaths() {
   return defineStaticPaths();
 }
 
 const { curPageLocales } = Astro.props;
-const seoI18nNamespace = "demo";
+const { locale } = Astro.params;
+
+const seoI18nNamespace = "home";
+
+const canonicalConfig = getCanonical({
+  pathname: Astro.url.pathname,
+  locale,
+  curPageLocales: curPageLocales,
+});
 ---
 
-<SEOPage seoI18nNamespace={seoI18nNamespace} curPageLocales={curPageLocales}>
+<SEOPage canonicalConfig={canonicalConfig} seoI18nNamespace={seoI18nNamespace}>
   <Hello client:only />
 </SEOPage>
